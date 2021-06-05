@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Covid19Info.Models.Vesti>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naslov)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NaslovAl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sazetak)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SazetakAl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tekst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TekstAl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slika)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imunizacija)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naslov)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovAl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sazetak)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SazetakAl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tekst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TekstAl)
+            </td>
+            <td>
+               <img src="~/Images/@item.Slika" width="40" height="40" asp-append-version="true" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imunizacija)
+            </td>
+            <td>
+                @Html.ActionLink("Izmeni", "Edit", new {  id=item.Id  }) |
+                @Html.ActionLink("Detalji", "Details", new {  id=item.Id  }) |
+                @Html.ActionLink("Brisi", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
