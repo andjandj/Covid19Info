@@ -47,6 +47,14 @@
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#hero">Početna</a></li>
+                        <li><a class="nav-link scrollto" href="~/Vesti/Index">Rad sa vestima</a></li>
+                        <li><a class="nav-link scrollto" href="~/Slajder/Index">Rad sa slajderom</a></li>
+                        <li><a class="nav-link scrollto" href="#portfolio">Dodaj 3</a></li>
 
             <nav id="navbar" class="navbar">
                 <ul>

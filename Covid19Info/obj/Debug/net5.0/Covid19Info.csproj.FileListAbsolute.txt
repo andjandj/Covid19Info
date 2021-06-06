@@ -164,3 +164,7 @@ C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\V
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Vesti\Index.cshtml.g.cs
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Vesti\Details.cshtml.g.cs
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Vesti\Edit.cshtml.g.cs
+C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Index.cshtml.g.cs
+C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Create.cshtml.g.cs
+C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Edit.cshtml.g.cs
+C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Details.cshtml.g.cs

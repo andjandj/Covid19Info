@@ -1,0 +1,57 @@
+﻿@model Covid19Info.Models.Slajder
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Slajder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="Podnaslov" class="control-label"></label>
+                <input asp-for="Podnaslov" class="form-control" />
+                <span asp-validation-for="Podnaslov" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PodnaslovAl" class="control-label"></label>
+                <input asp-for="PodnaslovAl" class="form-control" />
+                <span asp-validation-for="PodnaslovAl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sazetak" class="control-label"></label>
+                <input asp-for="Sazetak" class="form-control" />
+                <span asp-validation-for="Sazetak" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SazetakAl" class="control-label"></label>
+                <input asp-for="SazetakAl" class="form-control" />
+                <span asp-validation-for="SazetakAl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tekst" class="control-label"></label>
+                <input asp-for="Tekst" class="form-control" />
+                <span asp-validation-for="Tekst" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TekstAl" class="control-label"></label>
+                <input asp-for="TekstAl" class="form-control" />
+                <span asp-validation-for="TekstAl" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Sacuvaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
