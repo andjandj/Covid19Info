@@ -21,7 +21,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\Images\" />
     <Folder Include="Views\PojedinacnaVest\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
 
   <ItemGroup>

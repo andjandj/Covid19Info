@@ -167,5 +167,6 @@ C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\V
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Create.cshtml.g.cs
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Edit.cshtml.g.cs
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Slajder\Details.cshtml.g.cs
-C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Login\index.cshtml.g.cs
 C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\PojedinacnaVest\Index.cshtml.g.cs
+C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Razor\Views\Home\AboutUs.cshtml.g.cs
+C:\Users\Andjelija\source\repos\Covid19Info\Covid19Info\obj\Debug\net5.0\Covid19Info.csprojAssemblyReference.cache

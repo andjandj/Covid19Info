@@ -28,6 +28,7 @@ namespace Covid19Info.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Register()
         {
             return View();
