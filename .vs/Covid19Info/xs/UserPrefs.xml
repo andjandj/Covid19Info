@@ -1,23 +1,29 @@
 ﻿<Properties StartupConfiguration="{D586CFAA-6AE3-4AD0-A549-B9EBCCF4E7D2}|Default">
   <MonoDevelop.Ide.ItemProperties.Covid19Info PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Covid19Info/Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Covid19Info/Controllers/LoginController.cs">
     <Files>
-      <File FileName="Covid19Info/Views/Home/Index.cshtml" Line="921" Column="40" />
+      <File FileName="Covid19Info/Views/Home/Index.cshtml" Line="98" Column="1" />
       <File FileName="Covid19Info/Views/Account/Login.cshtml" Line="16" Column="1" />
       <File FileName="Covid19Info/Program.cs" Line="26" Column="2" />
-      <File FileName="Covid19Info/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="Covid19Info/Views/Vesti/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Covid19Info/Controllers/PojedinacnaVestController.cs" Line="22" Column="4" />
+      <File FileName="Covid19Info/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Covid19Info/Views/PojedinacnaVest/Index.cshtml" Line="287" Column="119" />
+      <File FileName="Covid19Info/Views/Shared/_Layout.cshtml" Line="91" Column="31" />
+      <File FileName="Covid19Info/Views/Login/Index.cshtml" Line="174" Column="9" />
+      <File FileName="Covid19Info/Controllers/LoginController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Covid19Info" expanded="True">
             <Node name="Covid19Info" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="LoginController.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" selected="True" />
-                </Node>
+                <Node name="Login" expanded="True" />
+                <Node name="PojedinacnaVest" expanded="True" />
               </Node>
             </Node>
           </Node>
