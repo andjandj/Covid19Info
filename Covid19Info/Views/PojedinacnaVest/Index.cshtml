@@ -1,4 +1,9 @@
-﻿<!-- ======= Blog Header ======= -->
+﻿@model Covid19Info.ViewModels.KomentariViewModel
+@{ 
+    Covid19InfoContext _context = new Covid19InfoContext();
+    Vesti vest = _context.Vestis.Find(3);
+}
+<!-- ======= Blog Header ======= -->
 <div class="header-bg page-area">
     <div class="container position-relative">
         <div class="row">
@@ -200,7 +205,7 @@
                                     <span>
                                         <i class="bi bi-tags"></i>
                                         <a href="#">Podtag 1</a>,
-                                        
+
                                     </span>
                                     <span><i class="bi bi-chat"></i> <a href="#">6 komentara</a></span>
                                 </div>
@@ -238,7 +243,7 @@
                                                 </div>
                                                 <div class="comments-content-wrap">
                                                     <span>
-                                                        
+
                                                         Ime
                                                         <span class="post-time">Oktobar 6, 2014 u 4:25 pm</span>
                                                         <a href="#">Odgovori</a>
@@ -254,7 +259,7 @@
                                                 </div>
                                                 <div class="comments-content-wrap">
                                                     <span>
-                                                    
+
                                                         Ime
                                                         <span class="post-time">Oktobar 6, 2014 u 6:18 pm </span>
                                                         <a href="#">Odgovori</a>
@@ -270,7 +275,7 @@
                                                 </div>
                                                 <div class="comments-content-wrap">
                                                     <span>
-                                                       
+
                                                         Ime
                                                         <span class="post-time">Oktobar 6, 2024 u 7:25 pm</span>
                                                         <a href="#">Odgovori</a>
@@ -284,21 +289,25 @@
                             </div>
                             <div class="comment-respond">
                                 <h3 class="comment-reply-title">Ostavi komentar</h3>
+                                @if (@ViewBag.Msg != null)
+                                {
+                                    <p style="color:red">@ViewBag.Msg</p>
+                                }
                                 <span class="email-notes">Tvoja e-adresa nece biti javna. Obavezna polja su obelezena *</span>
-                                <form action="#">
+                                <form asp-action="Index" method="post" asp-route-id="@vest.Id">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4">
-                                            <p>Ime *</p>
-                                            <input type="text" />
+                                            <p>Korisničko ime *</p>
+                                            <input type="text" asp-for="KorisnickoIme" name="KorisnickoIme" />
                                         </div>
                                         <div class="col-lg-4 col-md-4">
                                             <p>Email *</p>
-                                            <input type="email" />
+                                            <input type="email" asp-for="Email" name="Email" />
                                         </div>
-                                        
+
                                         <div class="col-lg-12 col-md-12 col-sm-12 comment-form-comment">
                                             <p>Tekst</p>
-                                            <textarea id="message-box" cols="30" rows="10"></textarea>
+                                            <textarea id="message-box" cols="30" rows="10" asp-for="TekstKomentara" name="TekstKomentara"></textarea>
                                             <input type="submit" value="Pošalji komentar" />
                                         </div>
                                     </div>

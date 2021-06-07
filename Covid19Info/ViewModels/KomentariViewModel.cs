@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-#nullable disable
-
-namespace Covid19Info.Models
+namespace Covid19Info.ViewModels
 {
-    public partial class Komentari
+    public class KomentariViewModel
     {
-        public int Id { get; set; }
         public string KorisnickoIme { get; set; }
         public string Email { get; set; }
         public string TekstKomentara { get; set; }
-        public int? IdVest { get; set; }
     }
 }

@@ -171,6 +171,7 @@ namespace Covid19Info.Models
                 entity.ToTable("Komentari");
 
                 entity.Property(e => e.KorisnickoIme).HasMaxLength(100);
+                entity.Property(e => e.Email).HasMaxLength(200);
             });
 
             modelBuilder.Entity<Korisnici>(entity =>
