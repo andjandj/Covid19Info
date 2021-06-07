@@ -38,5 +38,10 @@ namespace Covid19Info.Controllers
             return View();
         }
 
+        public IActionResult Imunizacija()
+        {
+            return View();
+        }
+
     }
 }
