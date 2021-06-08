@@ -1,4 +1,5 @@
-﻿using Covid19Info.ViewModels;
+﻿using Covid19Info.Models;
+using Covid19Info.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Covid19Info.Services
 {
     public class VestiServices
     {
+        public static readonly Covid19InfoContext _context =  new Covid19InfoContext();
+      
         public static string UploadFile(VestiViewModel model, IWebHostEnvironment web)
         {
 
@@ -30,6 +33,12 @@ namespace Covid19Info.Services
             }
 
             return fileName;
+        }
+
+        public static List<Vesti> ListOfVesti()
+        {
+            List<Vesti> vesti = _context.Vestis.ToList();
+            return vesti;
         }
     }
 }

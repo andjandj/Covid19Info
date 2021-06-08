@@ -1,4 +1,10 @@
-﻿<!-- ======= hero Section ======= -->
+﻿@using Covid19Info.Services;
+@{ 
+    List<Vesti> vesti = VestiServices.ListOfVesti();
+}
+
+
+<!-- ======= hero Section ======= -->
 <section id="hero">
     <div class="hero-container">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
@@ -326,11 +332,12 @@
             </div>
             <div class="row">
                 <!-- Start Left Blog -->
+                @foreach(Vesti v in vesti) { 
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
-                            <a href="blog.html">
-                                <img src="assets/img/blog/1.jpg" alt="">
+                            <a href="~/PojedinacnaVest/Index">
+                                <img src="~/Images/@v.Slika" alt="@v.Naslov">
                             </a>
                         </div>
                         <div class="blog-meta">
@@ -339,26 +346,27 @@
                                 <a href="#">13 komentara</a>
                             </span>
                             <span class="date-type">
-                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                <i class="fa fa-calendar"></i>@v.Datum
                             </span>
                         </div>
                         <div class="blog-text">
                             <h4>
-                                <a href="blog.html">Assumenda repud eum veniam</a>
+                                <a href="blog.html">@v.Naslov</a>
                             </h4>
                             <p>
-                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                              @v.Sazetak
                             </p>
                         </div>
                         <span>
-                            <a href="blog.html" class="ready-btn">Saznaj više</a>
+                            <a href="~/PojedinacnaVest/Index" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>
                     <!-- Start single blog -->
                 </div>
+                }
                 <!-- End Left Blog-->
                 <!-- Start Left Blog -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -385,12 +393,12 @@
                         <span>
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
-                    </div>
+                    </div>*@
                     <!-- Start single blog -->
-                </div>
+                @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Right Blog-->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -418,12 +426,12 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>
-                </div>
+                </div>*@
                 <!-- End Right Blog-->
-            </div>
-            <div class="row" style="margin-top: 50px;">
+            @*</div>*@
+            @*<div class="row" style="margin-top: 50px;">*@
                 <!-- Start Left Blog -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -450,12 +458,12 @@
                         <span>
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
-                    </div>
+                    </div>*@
                     <!-- Start single blog -->
-                </div>
+                @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Left Blog -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -482,12 +490,12 @@
                         <span>
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
-                    </div>
+                    </div>*@
                     <!-- Start single blog -->
-                </div>
+                @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Right Blog-->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -515,12 +523,12 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>
-                </div>
+                </div>*@
                 <!-- End Right Blog-->
-            </div>
-            <div class="row" style="margin-top: 50px;">
+            @*</div>*@
+            @*<div class="row" style="margin-top: 50px;">*@
                 <!-- Start Left Blog -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -547,12 +555,12 @@
                         <span>
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
-                    </div>
+                    </div>*@
                     <!-- Start single blog -->
-                </div>
+                @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Left Blog -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -579,12 +587,12 @@
                         <span>
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
-                    </div>
+                    </div>*@
                     <!-- Start single blog -->
-                </div>
+                @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Right Blog-->
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
                         <div class="single-blog-img">
                             <a href="blog.html">
@@ -612,7 +620,7 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>
-                </div>
+                </div>*@
                 <!-- End Right Blog-->
             </div>
         </div>
