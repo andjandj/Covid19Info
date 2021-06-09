@@ -1,6 +1,10 @@
 ﻿@using Covid19Info.Services;
 @{ 
     List<Vesti> vesti = VestiServices.ListOfVesti();
+    BrojZarazenihOsoba brZarazenihSrbija = BrojZarazenihService.listBrojZarazenihOsobaRegion("Srbija");
+    BrojZarazenihOsoba brZarazenihKosovo = BrojZarazenihService.listBrojZarazenihOsobaRegion("Kosovo");
+    BrojZarazenihOsoba brZarazenihStrpce = BrojZarazenihService.listBrojZarazenihOsobaRegion("Strpce");
+
 }
 
 
@@ -66,16 +70,16 @@
             </div>
             <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms" style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
                 <i class="fa fa-heart medium-icon"></i>
-                <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">2800</span>
+                <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihKosovo.BrojTestiranihOsobaDnevno</span>
                 <p class="counter-title">Broj testiranih osoba</p>
 
             </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">980</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihKosovo.BrojPotvrdjenihSlucajeva</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">810</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">@brZarazenihKosovo.BrojSmrtnihSlucajeva</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">600</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">@brZarazenihKosovo.UkupanBrojTestiranihSlucajeva</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
         </div>
         <hr class="linija">
         <div class="row" style="margin-top:50px">
@@ -85,240 +89,38 @@
             </div>
             <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms" style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
                 <i class="fa fa-heart medium-icon"></i>
-                <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">1.441.200</span>
+                <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihSrbija.BrojTestiranihOsobaDnevno</span>
                 <p class="counter-title">Broj testiranih osoba</p>
 
             </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">3142</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihSrbija.BrojPotvrdjenihSlucajeva</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">810</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">@brZarazenihSrbija.BrojSmrtnihSlucajeva</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">123.600</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">@brZarazenihSrbija.UkupanBrojTestiranihSlucajeva</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
         </div>
         <hr class="linija">
         <div class="row" style="margin-top:50px">
             <!-- counter -->
             <div class="section-headline text-center">
-                <h2>Strpce</h2>
+                <h2>Štrpce</h2>
             </div>
             <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms" style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
                 <i class="fa fa-heart medium-icon"></i>
-                <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">3</span>
+                <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihStrpce.BrojTestiranihOsobaDnevno</span>
                 <p class="counter-title">Broj testiranih osoba</p>
 
             </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">3</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihStrpce.BrojPotvrdjenihSlucajeva</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">-1</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">@brZarazenihStrpce.BrojSmrtnihSlucajeva</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
             <!-- counter -->
-            <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">3</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
+            <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">@brZarazenihStrpce.UkupanBrojTestiranihSlucajeva</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
         </div>
     </div>
 </section>
-<!-- ======= About Section =======
-<div id="about" class="about-area area-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="section-headline text-center">
-          <h2>About eBusiness</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="well-left">
-          <div class="single-well">
-            <a href="#">
-              <img src="assets/img/about/1.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="well-middle">
-          <div class="single-well">
-            <a href="#">
-              <h4 class="sec-head">project Maintenance</h4>
-            </a>
-            <p>
-              Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
-            </p>
-            <ul>
-              <li>
-                <i class="bi bi-check"></i> Interior design Package
-              </li>
-              <li>
-                <i class="bi bi-check"></i> Building House
-              </li>
-              <li>
-                <i class="bi bi-check"></i> Reparing of Residentail Roof
-              </li>
-              <li>
-                <i class="bi bi-check"></i> Renovaion of Commercial Office
-              </li>
-              <li>
-                <i class="bi bi-check"></i> Make Quality Products
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div><!-- End About Section -->
-<!-- End Counts Section
- <!-- ======= Team Section =======
- <div id="team" class="our-team-area area-padding">
-   <div class="container">
-     <div class="row">
-       <div class="col-md-12 col-sm-12 col-xs-12">
-         <div class="section-headline text-center">
-           <h2>Our special Team</h2>
-         </div>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-3 col-sm-3 col-xs-12">
-         <div class="single-team-member">
-           <div class="team-img">
-             <a href="#">
-               <img src="assets/img/team/1.jpg" alt="">
-             </a>
-             <div class="team-social-icon text-center">
-               <ul>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-facebook"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-twitter"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-instagram"></i>
-                   </a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-           <div class="team-content text-center">
-             <h4>Jhon Mickel</h4>
-             <p>Seo</p>
-           </div>
-         </div>
-       </div>
-       <!-- End column
-       <div class="col-md-3 col-sm-3 col-xs-12">
-         <div class="single-team-member">
-           <div class="team-img">
-             <a href="#">
-               <img src="assets/img/team/2.jpg" alt="">
-             </a>
-             <div class="team-social-icon text-center">
-               <ul>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-facebook"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-twitter"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-instagram"></i>
-                   </a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-           <div class="team-content text-center">
-             <h4>Andrew Arnold</h4>
-             <p>Web Developer</p>
-           </div>
-         </div>
-       </div>
-       <!-- End column
-       <div class="col-md-3 col-sm-3 col-xs-12">
-         <div class="single-team-member">
-           <div class="team-img">
-             <a href="#">
-               <img src="assets/img/team/3.jpg" alt="">
-             </a>
-             <div class="team-social-icon text-center">
-               <ul>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-facebook"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-twitter"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-instagram"></i>
-                   </a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-           <div class="team-content text-center">
-             <h4>Lellien Linda</h4>
-             <p>Web Design</p>
-           </div>
-         </div>
-       </div>
-       <div class="col-md-3 col-sm-3 col-xs-12">
-         <div class="single-team-member">
-           <div class="team-img">
-             <a href="#">
-               <img src="assets/img/team/4.jpg" alt="">
-             </a>
-             <div class="team-social-icon text-center">
-               <ul>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-facebook"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-twitter"></i>
-                   </a>
-                 </li>
-                 <li>
-                   <a href="#">
-                     <i class="bi bi-instagram"></i>
-                   </a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-           <div class="team-content text-center">
-             <h4>Jhon Powel</h4>
-             <p>Seo Expert</p>
-           </div>
-         </div>
-       </div>
-       <!-- End column
-     </div>
-   </div>
- </div><!-- End Team Section -->
-<!-- ======= Blog Section ======= -->
 <div id="blog" class="blog-area">
     <div class="blog-inner area-padding">
         <div class="blog-overly"></div>

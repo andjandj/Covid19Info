@@ -37,8 +37,19 @@ namespace Covid19Info.Services
 
         public static List<Vesti> ListOfVesti()
         {
-            List<Vesti> vesti = _context.Vestis.ToList();
+            List<Vesti> vesti = (from v in _context.Vestis
+                                 select v).OrderByDescending(e => e.Id).ToList();
             return vesti;
+        }
+
+        public static Vesti PoslednjaVest()
+        {
+            int idMax = (from v in _context.Vestis
+                         select v.Id).Max();
+            Vesti vest = (from v in _context.Vestis
+                          where v.Id == idMax
+                          select v).Single();
+            return vest;
         }
     }
 }

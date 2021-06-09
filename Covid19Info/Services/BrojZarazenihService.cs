@@ -9,13 +9,14 @@ namespace Covid19Info.Services
     public class BrojZarazenihService
     {
         public static Covid19InfoContext _context = new Covid19InfoContext();
-        public static List<BrojZarazenihOsoba> listBrojZarazenihOsobaRegion(string region)
+        public static BrojZarazenihOsoba listBrojZarazenihOsobaRegion(string region)
         {
             int idMax = (from i in _context.BrojZarazenihOsobas
+                         where i.DeoNaKojiSePodaciOdnose == region
                          select i.Id).Max();
-            List<BrojZarazenihOsoba> brZarazenihOsoba = (from br in _context.BrojZarazenihOsobas
-                                                         where br.DeoNaKojiSePodaciOdnose == region && br.Id == idMax
-                                                         select br).ToList();
+            BrojZarazenihOsoba brZarazenihOsoba = (from br in _context.BrojZarazenihOsobas
+                                                         where br.Id == idMax
+                                                         select br).Single();
             return brZarazenihOsoba;
         }
     }

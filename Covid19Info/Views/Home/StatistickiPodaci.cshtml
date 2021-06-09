@@ -1,7 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Covid19Info.Services;
 @{
+    BrojZarazenihOsoba brZarazenihSrbija = BrojZarazenihService.listBrojZarazenihOsobaRegion("Srbija");
+    BrojZarazenihOsoba brZarazenihKosovo = BrojZarazenihService.listBrojZarazenihOsobaRegion("Kosovo");
+    BrojZarazenihOsoba brZarazenihStrpce = BrojZarazenihService.listBrojZarazenihOsobaRegion("Strpce");
 }
 <main id="main">
     <section style="margin-top: 90px;" class="wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
@@ -13,16 +14,16 @@
                 </div>
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms" style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
                     <i class="fa fa-heart medium-icon"></i>
-                    <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">2800</span>
+                    <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihKosovo.BrojTestiranihOsobaDnevno</span>
                     <p class="counter-title">Broj testiranih osoba</p>
 
                 </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">980</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihKosovo.BrojPotvrdjenihSlucajeva</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">810</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">@brZarazenihKosovo.BrojSmrtnihSlucajeva</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">600</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">@brZarazenihKosovo.UkupanBrojTestiranihSlucajeva</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
             </div>
             <hr class="linija">
             <div class="row" style="margin-top:50px">
@@ -32,35 +33,35 @@
                 </div>
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms" style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
                     <i class="fa fa-heart medium-icon"></i>
-                    <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">1.441.200</span>
+                    <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihSrbija.BrojTestiranihOsobaDnevno</span>
                     <p class="counter-title">Broj testiranih osoba</p>
 
                 </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">3142</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihSrbija.BrojPotvrdjenihSlucajeva</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">810</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">@brZarazenihSrbija.BrojSmrtnihSlucajeva</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">123.600</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">@brZarazenihSrbija.UkupanBrojTestiranihSlucajeva</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
             </div>
             <hr class="linija">
             <div class="row" style="margin-top:50px">
                 <!-- counter -->
                 <div class="section-headline text-center">
-                    <h2>Strpce</h2>
+                    <h2>Štrpce</h2>
                 </div>
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms" style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
                     <i class="fa fa-heart medium-icon"></i>
-                    <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">3</span>
+                    <span id="anim-number-pizza" class="counter-number"></span> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihStrpce.BrojTestiranihOsobaDnevno</span>
                     <p class="counter-title">Broj testiranih osoba</p>
 
                 </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">3</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms" style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;"> <i class="fa fa-heart medium-icon"></i> <span class="timer counter alt-font appear" data-to="980" data-speed="7000">@brZarazenihStrpce.BrojPotvrdjenihSlucajeva</span> <span class="counter-title">Broj potvrdjenih slučajeva</span> </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">-1</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated" data-wow-duration="900ms" style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;"> <i class="fa fa-anchor medium-icon"></i> <span class="timer counter alt-font appear" data-to="810" data-speed="7000">@brZarazenihStrpce.BrojSmrtnihSlucajeva</span> <span class="counter-title">Broj smtnih slučajeva</span> </div> <!-- end counter -->
                 <!-- counter -->
-                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">3</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
+                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated" data-wow-duration="1200ms" style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;"> <i class="fa fa-user medium-icon"></i> <span class="timer counter alt-font appear" data-to="600" data-speed="7000">@brZarazenihStrpce.UkupanBrojTestiranihSlucajeva</span> <span class="counter-title">Ukupan broj testiranih slučajeva</span> </div> <!-- end counter -->
             </div>
         </div>
     </section>

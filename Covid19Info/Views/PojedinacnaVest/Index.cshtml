@@ -1,7 +1,10 @@
-﻿@model Covid19Info.ViewModels.KomentariViewModel
+﻿@using Covid19Info.Services;
+@model Covid19Info.ViewModels.KomentariViewModel
 @{ 
+    
     Covid19InfoContext _context = new Covid19InfoContext();
-    Vesti vest = _context.Vestis.Find(3);
+    Vesti vest = VestiServices.PoslednjaVest();
+    List<Vesti> listaVesti = VestiServices.ListOfVesti();
 }
 <!-- ======= Blog Header ======= -->
 <div class="header-bg page-area">
@@ -11,10 +14,10 @@
                 <div class="slider-content text-center">
                     <div class="header-bottom">
                         <div class="layer2">
-                            <h1 class="title2">Ime vesti </h1>
+                            <h1 class="title2">@vest.Naslov </h1>
                         </div>
                         <div class="layer3">
-                            <h2 class="title3">Podnaslov ako postoji</h2>
+                            <h2 class="title3">Stranica vesti</h2>
                         </div>
                     </div>
                 </div>
@@ -46,82 +49,34 @@
                             <h4>Najnovije vesti</h4>
                             <div class="recent-post">
                                 <!-- start single post -->
+                                @for (int i = 0; i < 6; i++)
+                                {
                                 <div class="recent-single-post">
                                     <div class="post-img">
                                         <a href="#">
-                                            <img src="~/assets/img/blog/1.jpg" alt="">
+                                            <img src="~/Images/@listaVesti[i].Slika" alt="@listaVesti[i].Naslov">
                                         </a>
                                     </div>
+                                
                                     <div class="pst-content">
-                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
+                                        <p><a href="#"> @listaVesti[i].Sazetak</a></p>
                                     </div>
                                 </div>
+                                }
                                 <!-- End single post -->
-                                <!-- start single post -->
-                                <div class="recent-single-post">
-                                    <div class="post-img">
-                                        <a href="#">
-                                            <img src="~/assets/img/blog/2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="pst-content">
-                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                    </div>
-                                </div>
-                                <!-- End single post -->
-                                <!-- start single post -->
-                                <div class="recent-single-post">
-                                    <div class="post-img">
-                                        <a href="#">
-                                            <img src="~/assets/img/blog/3.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="pst-content">
-                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                    </div>
-                                </div>
-                                <!-- End single post -->
-                                <!-- start single post -->
-                                <div class="recent-single-post">
-                                    <div class="post-img">
-                                        <a href="#">
-                                            <img src="~/assets/img/blog/4.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="pst-content">
-                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                    </div>
-                                </div>
-                                <!-- End single post -->
+                               
                             </div>
                         </div>
                         <!-- recent end -->
                     </div>
                     <div class="single-blog-page">
                         <div class="left-blog">
-                            <h4>kategorije</h4>
+                            <h4>Kategorije</h4>
                             <ul>
                                 <li>
-                                    <a href="#">Kategorija 1</a>
+                                    <a href="~/Home/Imunizacija">Imunizacija</a>
                                 </li>
-                                <li>
-                                    <a href="#">Kategorija 2</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kategorija 3</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kategorija 4</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kategorija 5</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kategorija 6</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kategorija 7</a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -147,7 +102,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="single-blog-page">
+                    @*<div class="single-blog-page">
                         <div class="left-tags blog-tags">
                             <div class="popular-tag left-side-tags left-blog">
                                 <h4>Popularni tagovi</h4>
@@ -179,7 +134,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
             <!-- End left sidebar -->
@@ -190,41 +145,27 @@
                         <!-- single-blog start -->
                         <article class="blog-post-wrapper">
                             <div class="post-thumbnail">
-                                <img src="~/assets/img/blog/6.jpg" alt="" />
+                                <img src="~/Images/@vest.Slika" alt="@vest.Naslov" />
                             </div>
                             <div class="post-information">
-                                <h2>Blog image post layout</h2>
+                                <h2>@vest.Naslov</h2>
                                 <div class="entry-meta">
                                     <span class="author-meta"><i class="bi bi-person"></i> </span>
-                                    <span><i class="bi bi-clock"></i> mart 28, 2020</span>
+                                    <span><i class="bi bi-clock"></i>@vest.Datum</span>
                                     <span class="tag-meta">
                                         <i class="bi bi-folder"></i>
-                                        <a href="#">Tag 1</a>,
-                                        <a href="#">Tag 2</a>
+                                        @*<a href="#">Tag 1</a>,
+                                        <a href="#">Tag 2</a>*@
                                     </span>
                                     <span>
                                         <i class="bi bi-tags"></i>
-                                        <a href="#">Podtag 1</a>,
+                                        @*<a href="#">Podtag 1</a>,*@
 
                                     </span>
                                     <span><i class="bi bi-chat"></i> <a href="#">6 komentara</a></span>
                                 </div>
                                 <div class="entry-content">
-                                    <p>
-                                        Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse
-                                        potenti. Proin consectetur aliquam odio nec fringilla. Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit amet ligula condimentum sagittis.
-                                    </p>
-                                    <blockquote>
-                                        <p>
-                                            Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur. In venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed, cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin dictum
-                                            tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque scelerisque.
-                                        </p>
-                                    </blockquote>
-                                    <p>
-                                        Aenean et tempor eros, vitae sollicitudin velit. Etiam varius enim nec quam tempor, sed efficitur ex ultrices. Phasellus pretium est vel dui vestibulum condimentum. Aenean nec suscipit nibh. Phasellus nec lacus id arcu facilisis elementum.
-                                        Curabitur lobortis, elit ut elementum congue, erat ex bibendum odio, nec iaculis lacus sem non lorem. Duis suscipit metus ante, sed convallis quam posuere quis. Ut tincidunt eleifend odio, ac fringilla mi vehicula nec. Nunc vitae
-                                        lacus eget lectus imperdiet tempus sed in dui. Nam molestie magna at risus consectetur, placerat suscipit justo dignissim. Sed vitae fringilla enim, nec ullamcorper arcu.
-                                    </p>
+                                   <p>@vest.Tekst</p>
                                 </div>
                             </div>
                         </article>
