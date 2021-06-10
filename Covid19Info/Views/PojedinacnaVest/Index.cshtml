@@ -3,7 +3,7 @@
 @{ 
     
     Covid19InfoContext _context = new Covid19InfoContext();
-    Vesti vest = VestiServices.PoslednjaVest();
+    Vesti vest = ViewBag.Vest;
     List<Vesti> listaVesti = VestiServices.ListOfVesti();
 }
 <!-- ======= Blog Header ======= -->
@@ -53,13 +53,13 @@
                                 {
                                 <div class="recent-single-post">
                                     <div class="post-img">
-                                        <a href="#">
+                                        <a href="~/PojedinacnaVest/Index/@listaVesti[i].Id">
                                             <img src="~/Images/@listaVesti[i].Slika" alt="@listaVesti[i].Naslov">
                                         </a>
                                     </div>
                                 
                                     <div class="pst-content">
-                                        <p><a href="#"> @listaVesti[i].Sazetak</a></p>
+                                        <p><a href="~/PojedinacnaVest/Index/@listaVesti[i].Id"> @listaVesti[i].Sazetak</a></p>
                                     </div>
                                 </div>
                                 }

@@ -1,4 +1,5 @@
-﻿using Covid19Info.ViewModels;
+﻿using Covid19Info.Models;
+using Covid19Info.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Covid19Info.Services
 {
     public class SlajderService
     {
+        public static Covid19InfoContext _context = new Covid19InfoContext();
         public static string UploadFile(SlajderViewModel model, IWebHostEnvironment web)
         {
 
@@ -30,6 +32,14 @@ namespace Covid19Info.Services
             }
 
             return fileName;
+        }
+
+        public static List<Slajder> VratiPoslednjaTri()
+        {
+            List<Slajder> slajderi = (from s in _context.Slajders
+                                      select s).OrderByDescending(e => e.Id).ToList();
+
+            return slajderi;
         }
     }
 }

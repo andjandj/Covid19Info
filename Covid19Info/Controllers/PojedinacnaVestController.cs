@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Covid19Info.Models;
+using Covid19Info.Services;
 using Covid19Info.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,8 +19,9 @@ namespace Covid19Info.Controllers
             _context = context;
         }
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
+            ViewBag.Vest = VestiServices.JednaVest(id);
             return View();
         }
        

@@ -1,9 +1,10 @@
 ﻿@using Covid19Info.Services;
-@{ 
+@{
     List<Vesti> vesti = VestiServices.ListOfVesti();
     BrojZarazenihOsoba brZarazenihSrbija = BrojZarazenihService.listBrojZarazenihOsobaRegion("Srbija");
     BrojZarazenihOsoba brZarazenihKosovo = BrojZarazenihService.listBrojZarazenihOsobaRegion("Kosovo");
     BrojZarazenihOsoba brZarazenihStrpce = BrojZarazenihService.listBrojZarazenihOsobaRegion("Strpce");
+    List<Slajder> slajderi = SlajderService.VratiPoslednjaTri();
 
 }
 
@@ -16,36 +17,44 @@
             <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
 
             <div class="carousel-inner" role="listbox">
-
-                <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/1.jpg)">
-                    <div class="carousel-container">
-                        <div class="container">
-                            <h2 class="animate__animated animate__fadeInDown">Podnaslov slajdera</h2>
-                            <p class="animate__animated animate__fadeInUp">Vest koja je vezana za slajder</p>
-                            <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Saznaj više</a>
+                @for (int i = 0; i < 3; i++)
+                {
+                    if (i == 2)
+                    {
+                        <div class="carousel-item active" style="background-image: url(Images/@slajderi[i].Slika)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">@slajderi[i].Podnaslov</h2>
+                                    <p class="animate__animated animate__fadeInUp">@slajderi[i].Sazetak</p>
+                                    <a href="~/PojedinacnaVest/Index" class="btn-get-started scrollto animate__animated animate__fadeInUp">Saznaj više</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/2.jpg)">
-                    <div class="carousel-container">
-                        <div class="container">
-                            <h2 class="animate__animated animate__fadeInDown">Podnaslov slajdera 2</h2>
-                            <p class="animate__animated animate__fadeInUp">Vest koja je vezana za slajder (različita) 2 </p>
-                            <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Saznaj više</a>
+                    }
+                    else
+                    {
+                        <div class="carousel-item" style="background-image: url(Images/@slajderi[i].Slika)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">@slajderi[i].Podnaslov</h2>
+                                    <p class="animate__animated animate__fadeInUp">@slajderi[i].Sazetak </p>
+                                    <a href="~/PojedinacnaVest/Index" class="btn-get-started scrollto animate__animated animate__fadeInUp">Saznaj više</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
+                @*
 
-                <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/3.jpg)" heig>
-                    <div class="carousel-container">
-                        <div class="container">
-                            <h2 class="animate__animated animate__fadeInDown">Podnaslov slajdera 3</h2>
-                            <p class="animate__animated animate__fadeInUp">Vest koja je vezana za slajder (različita) 3</p>
-                            <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Saznaj više</a>
+                    <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/3.jpg)" heig>
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">Podnaslov slajdera 3</h2>
+                                <p class="animate__animated animate__fadeInUp">Vest koja je vezana za slajder (različita) 3</p>
+                                <a href="~/PojedinacnaVest/Index" class="btn-get-started scrollto animate__animated animate__fadeInUp">Saznaj više</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>*@
 
             </div>
 
@@ -134,37 +143,38 @@
             </div>
             <div class="row">
                 <!-- Start Left Blog -->
-                @foreach(Vesti v in vesti) { 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <a href="~/PojedinacnaVest/Index">
-                                <img src="~/Images/@v.Slika" alt="@v.Naslov">
-                            </a>
-                        </div>
-                        <div class="blog-meta">
-                            <span class="comments-type">
-                                <i class="fa fa-comment-o"></i>
-                                <a href="#">13 komentara</a>
+                @foreach (Vesti v in vesti)
+                {
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="single-blog">
+                            <div class="single-blog-img">
+                                <a href="~/PojedinacnaVest/Index">
+                                    <img src="~/Images/@v.Slika" alt="@v.Naslov">
+                                </a>
+                            </div>
+                            <div class="blog-meta">
+                                <span class="comments-type">
+                                    <i class="fa fa-comment-o"></i>
+                                    <a href="#">13 komentara</a>
+                                </span>
+                                <span class="date-type">
+                                    <i class="fa fa-calendar"></i>@v.Datum
+                                </span>
+                            </div>
+                            <div class="blog-text">
+                                <h4>
+                                    <a href="blog.html">@v.Naslov</a>
+                                </h4>
+                                <p>
+                                    @v.Sazetak
+                                </p>
+                            </div>
+                            <span>
+                                <a href="~/PojedinacnaVest/Index/@v.Id" class="ready-btn">Saznaj više</a>
                             </span>
-                            <span class="date-type">
-                                <i class="fa fa-calendar"></i>@v.Datum
-                            </span>
                         </div>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="blog.html">@v.Naslov</a>
-                            </h4>
-                            <p>
-                              @v.Sazetak
-                            </p>
-                        </div>
-                        <span>
-                            <a href="~/PojedinacnaVest/Index" class="ready-btn">Saznaj više</a>
-                        </span>
+                        <!-- Start single blog -->
                     </div>
-                    <!-- Start single blog -->
-                </div>
                 }
                 <!-- End Left Blog-->
                 <!-- Start Left Blog -->
@@ -196,42 +206,42 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>*@
-                    <!-- Start single blog -->
+                <!-- Start single blog -->
                 @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Right Blog-->
                 @*<div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <a href="blog.html">
-                                <img src="assets/img/blog/3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="blog-meta">
-                            <span class="comments-type">
-                                <i class="fa fa-comment-o"></i>
-                                <a href="#">10 komentara</a>
+                        <div class="single-blog">
+                            <div class="single-blog-img">
+                                <a href="blog.html">
+                                    <img src="assets/img/blog/3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-meta">
+                                <span class="comments-type">
+                                    <i class="fa fa-comment-o"></i>
+                                    <a href="#">10 komentara</a>
+                                </span>
+                                <span class="date-type">
+                                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                </span>
+                            </div>
+                            <div class="blog-text">
+                                <h4>
+                                    <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                                </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                </p>
+                            </div>
+                            <span>
+                                <a href="blog.html" class="ready-btn">Saznaj više</a>
                             </span>
-                            <span class="date-type">
-                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                            </span>
                         </div>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="blog.html">Lorem ipsum dolor sit amet</a>
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                            </p>
-                        </div>
-                        <span>
-                            <a href="blog.html" class="ready-btn">Saznaj više</a>
-                        </span>
-                    </div>
-                </div>*@
+                    </div>*@
                 <!-- End Right Blog-->
-            @*</div>*@
-            @*<div class="row" style="margin-top: 50px;">*@
+                @*</div>*@
+                @*<div class="row" style="margin-top: 50px;">*@
                 <!-- Start Left Blog -->
                 @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
@@ -261,7 +271,7 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>*@
-                    <!-- Start single blog -->
+                <!-- Start single blog -->
                 @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Left Blog -->
@@ -293,42 +303,42 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>*@
-                    <!-- Start single blog -->
+                <!-- Start single blog -->
                 @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Right Blog-->
                 @*<div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <a href="blog.html">
-                                <img src="assets/img/blog/3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="blog-meta">
-                            <span class="comments-type">
-                                <i class="fa fa-comment-o"></i>
-                                <a href="#">10 komentara</a>
+                        <div class="single-blog">
+                            <div class="single-blog-img">
+                                <a href="blog.html">
+                                    <img src="assets/img/blog/3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-meta">
+                                <span class="comments-type">
+                                    <i class="fa fa-comment-o"></i>
+                                    <a href="#">10 komentara</a>
+                                </span>
+                                <span class="date-type">
+                                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                </span>
+                            </div>
+                            <div class="blog-text">
+                                <h4>
+                                    <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                                </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                </p>
+                            </div>
+                            <span>
+                                <a href="blog.html" class="ready-btn">Saznaj više</a>
                             </span>
-                            <span class="date-type">
-                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                            </span>
                         </div>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="blog.html">Lorem ipsum dolor sit amet</a>
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                            </p>
-                        </div>
-                        <span>
-                            <a href="blog.html" class="ready-btn">Saznaj više</a>
-                        </span>
-                    </div>
-                </div>*@
+                    </div>*@
                 <!-- End Right Blog-->
-            @*</div>*@
-            @*<div class="row" style="margin-top: 50px;">*@
+                @*</div>*@
+                @*<div class="row" style="margin-top: 50px;">*@
                 <!-- Start Left Blog -->
                 @*<div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-blog">
@@ -358,7 +368,7 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>*@
-                    <!-- Start single blog -->
+                <!-- Start single blog -->
                 @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Left Blog -->
@@ -390,39 +400,39 @@
                             <a href="blog.html" class="ready-btn">Saznaj više</a>
                         </span>
                     </div>*@
-                    <!-- Start single blog -->
+                <!-- Start single blog -->
                 @*</div>*@
                 <!-- End Left Blog-->
                 <!-- Start Right Blog-->
                 @*<div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <a href="blog.html">
-                                <img src="assets/img/blog/3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="blog-meta">
-                            <span class="comments-type">
-                                <i class="fa fa-comment-o"></i>
-                                <a href="#">10 komentara</a>
+                        <div class="single-blog">
+                            <div class="single-blog-img">
+                                <a href="blog.html">
+                                    <img src="assets/img/blog/3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-meta">
+                                <span class="comments-type">
+                                    <i class="fa fa-comment-o"></i>
+                                    <a href="#">10 komentara</a>
+                                </span>
+                                <span class="date-type">
+                                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                </span>
+                            </div>
+                            <div class="blog-text">
+                                <h4>
+                                    <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                                </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                </p>
+                            </div>
+                            <span>
+                                <a href="blog.html" class="ready-btn">Saznaj više</a>
                             </span>
-                            <span class="date-type">
-                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                            </span>
                         </div>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="blog.html">Lorem ipsum dolor sit amet</a>
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                            </p>
-                        </div>
-                        <span>
-                            <a href="blog.html" class="ready-btn">Saznaj više</a>
-                        </span>
-                    </div>
-                </div>*@
+                    </div>*@
                 <!-- End Right Blog-->
             </div>
         </div>

@@ -42,13 +42,24 @@ namespace Covid19Info.Services
             return vesti;
         }
 
-        public static Vesti PoslednjaVest()
+        public static Vesti JednaVest(int? id)
         {
-            int idMax = (from v in _context.Vestis
-                         select v.Id).Max();
-            Vesti vest = (from v in _context.Vestis
-                          where v.Id == idMax
-                          select v).Single();
+            Vesti vest = new Vesti();
+            if (id == null) 
+            { 
+                int idMax = (from v in _context.Vestis
+                             select v.Id).Max();
+
+                vest = (from v in _context.Vestis
+                        where v.Id == idMax
+                        select v).Single();
+            }
+            else
+            {
+                vest = (from v in _context.Vestis
+                        where v.Id == id
+                        select v).Single();
+            }
             return vest;
         }
     }
