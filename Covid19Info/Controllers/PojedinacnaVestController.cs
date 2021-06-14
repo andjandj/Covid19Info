@@ -22,6 +22,7 @@ namespace Covid19Info.Controllers
         public IActionResult Index(int? id)
         {
             ViewBag.Vest = VestiServices.JednaVest(id);
+            ViewBag.Komentari = VestiServices.IspisKomentaraZaVest(id);
             return View();
         }
        
@@ -36,11 +37,15 @@ namespace Covid19Info.Controllers
                 IdVest = id,
             };
 
+
+            ViewBag.Vest = VestiServices.JednaVest(id);
+            ViewBag.Komentari = VestiServices.IspisKomentaraZaVest(id);
+
             try
             {
                 _context.Komentaris.Add(komentar);
                 _context.SaveChanges();
-                return View();
+                return RedirectPermanent("~/PojedinacnaVest/Index/"+id);
             }
             catch
             {
@@ -48,6 +53,8 @@ namespace Covid19Info.Controllers
                 ViewBag.Msg = "Došlo je do greške, komentar nije poslat";
                 return View();
             }
+
+            
         }
    
     }

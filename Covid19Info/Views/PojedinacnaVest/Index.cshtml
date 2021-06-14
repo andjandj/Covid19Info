@@ -1,10 +1,11 @@
 ﻿@using Covid19Info.Services;
 @model Covid19Info.ViewModels.KomentariViewModel
-@{ 
-    
+@{
+
     Covid19InfoContext _context = new Covid19InfoContext();
     Vesti vest = ViewBag.Vest;
     List<Vesti> listaVesti = VestiServices.ListOfVesti();
+    List<Komentari> komentari = ViewBag.Komentari;
 }
 <!-- ======= Blog Header ======= -->
 <div class="header-bg page-area">
@@ -51,20 +52,20 @@
                                 <!-- start single post -->
                                 @for (int i = 0; i < 6; i++)
                                 {
-                                <div class="recent-single-post">
-                                    <div class="post-img">
-                                        <a href="~/PojedinacnaVest/Index/@listaVesti[i].Id">
-                                            <img src="~/Images/@listaVesti[i].Slika" alt="@listaVesti[i].Naslov">
-                                        </a>
+                                    <div class="recent-single-post">
+                                        <div class="post-img">
+                                            <a href="~/PojedinacnaVest/Index/@listaVesti[i].Id">
+                                                <img src="~/Images/@listaVesti[i].Slika" alt="@listaVesti[i].Naslov">
+                                            </a>
+                                        </div>
+
+                                        <div class="pst-content">
+                                            <p><a href="~/PojedinacnaVest/Index/@listaVesti[i].Id"> @listaVesti[i].Sazetak</a></p>
+                                        </div>
                                     </div>
-                                
-                                    <div class="pst-content">
-                                        <p><a href="~/PojedinacnaVest/Index/@listaVesti[i].Id"> @listaVesti[i].Sazetak</a></p>
-                                    </div>
-                                </div>
                                 }
                                 <!-- End single post -->
-                               
+
                             </div>
                         </div>
                         <!-- recent end -->
@@ -76,7 +77,7 @@
                                 <li>
                                     <a href="~/Home/Imunizacija">Imunizacija</a>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -102,39 +103,7 @@
                             </ul>
                         </div>
                     </div>
-                    @*<div class="single-blog-page">
-                        <div class="left-tags blog-tags">
-                            <div class="popular-tag left-side-tags left-blog">
-                                <h4>Popularni tagovi</h4>
-                                <ul>
-                                    <li>
-                                        <a href="#">Popularni tagovi 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 4</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 5</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 6</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 7</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Popularni tagovi 8</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>*@
+
                 </div>
             </div>
             <!-- End left sidebar -->
@@ -155,17 +124,23 @@
                                     <span class="tag-meta">
                                         <i class="bi bi-folder"></i>
                                         @*<a href="#">Tag 1</a>,
-                                        <a href="#">Tag 2</a>*@
+                                            <a href="#">Tag 2</a>*@
                                     </span>
                                     <span>
                                         <i class="bi bi-tags"></i>
                                         @*<a href="#">Podtag 1</a>,*@
 
                                     </span>
-                                    <span><i class="bi bi-chat"></i> <a href="#">6 komentara</a></span>
+                                    <span>
+                                        <i class="bi bi-chat"></i> <a href="#komentari">
+                                          
+                                         <span> komentari</span>
+                                           
+                                        </a>
+                                    </span>
                                 </div>
                                 <div class="entry-content">
-                                   <p>@vest.Tekst</p>
+                                    <p>@vest.Tekst</p>
                                 </div>
                             </div>
                         </article>
@@ -173,59 +148,74 @@
                         <div class="single-post-comments">
                             <div class="comments-area">
                                 <div class="comments-heading">
-                                    <h3>6 komentara</h3>
+                                    <h3>
+                                        @if (komentari.Count > 0)
+                                        {
+                                            <span>@komentari.Count komentara</span> 
+                                            }
+                                    else
+                                    {
+                                            <span> 0 komentara</span>
+                                          }
+                                    </h3>
                                 </div>
-                                <div class="comments-list">
-                                    <ul>
-                                        <li class="threaded-comments">
-                                            <div class="comments-details">
-                                                <div class="comments-list-img">
-                                                    <img src="~/assets/img/blog/b02.jpg" alt="post-author">
-                                                </div>
-                                                <div class="comments-content-wrap">
-                                                    <span>
+                                <div class="comments-list" id="komentari">
+                                    @if (komentari.Count > 0)
+                                    {
+                                        <ul>
+                                            @foreach (Komentari komentar in komentari)
+                                            {
+                                                <li class="threaded-comments">
+                                                    <div class="comments-details">
+                                                        <div class="comments-list-img">
+                                                            <img src="~/assets/img/blog/b02.jpg" alt="post-author">
+                                                        </div>
+                                                        <div class="comments-content-wrap">
+                                                            <span>
 
-                                                        Ime
-                                                        <span class="post-time">Oktobar 6, 2014 u 4:25 pm</span>
-                                                        <a href="#">Odgovori</a>
-                                                    </span>
-                                                    <p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="comments-details">
-                                                <div class="comments-list-img">
-                                                    <img src="~/assets/img/blog/b02.jpg" alt="post-author">
-                                                </div>
-                                                <div class="comments-content-wrap">
-                                                    <span>
+                                                                @komentar.KorisnickoIme
+                                                                <span class="post-time">@DateTime.Now</span>
+                                                                <a href="#">Odgovori</a>
+                                                            </span>
+                                                            <p>@komentar.TekstKomentara</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            @*<li>
+                                                    <div class="comments-details">
+                                                        <div class="comments-list-img">
+                                                            <img src="~/assets/img/blog/b02.jpg" alt="post-author">
+                                                        </div>
+                                                        <div class="comments-content-wrap">
+                                                            <span>
 
-                                                        Ime
-                                                        <span class="post-time">Oktobar 6, 2014 u 6:18 pm </span>
-                                                        <a href="#">Odgovori</a>
-                                                    </span>
-                                                    <p>Quisque orci nibh, porta vitae sagittis sit amet, vehicula vel mauris. Aenean at justo dolor. Fusce ac sapien bibendum, scelerisque libero nec</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="threaded-comments">
-                                            <div class="comments-details">
-                                                <div class="comments-list-img">
-                                                    <img src="~/assets/img/blog/b02.jpg" alt="post-author">
-                                                </div>
-                                                <div class="comments-content-wrap">
-                                                    <span>
+                                                                Ime
+                                                                <span class="post-time">Oktobar 6, 2014 u 6:18 pm </span>
+                                                                <a href="#">Odgovori</a>
+                                                            </span>
+                                                            <p>Quisque orci nibh, porta vitae sagittis sit amet, vehicula vel mauris. Aenean at justo dolor. Fusce ac sapien bibendum, scelerisque libero nec</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="threaded-comments">
+                                                    <div class="comments-details">
+                                                        <div class="comments-list-img">
+                                                            <img src="~/assets/img/blog/b02.jpg" alt="post-author">
+                                                        </div>
+                                                        <div class="comments-content-wrap">
+                                                            <span>
 
-                                                        Ime
-                                                        <span class="post-time">Oktobar 6, 2024 u 7:25 pm</span>
-                                                        <a href="#">Odgovori</a>
-                                                    </span>
-                                                    <p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                                                Ime
+                                                                <span class="post-time">Oktobar 6, 2024 u 7:25 pm</span>
+                                                                <a href="#">Odgovori</a>
+                                                            </span>
+                                                            <p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur</p>
+                                                        </div>
+                                                    </div>
+                                                </li>*@
+                                        </ul>
+                                    }
                                 </div>
                             </div>
                             <div class="comment-respond">

@@ -62,5 +62,26 @@ namespace Covid19Info.Services
             }
             return vest;
         }
+
+
+        public static List<Komentari> IspisKomentaraZaVest(int? id)
+        {
+            List<Komentari> komentari = new List<Komentari>();
+            if (id != null)
+            {
+                komentari = (from k in _context.Komentaris
+                                             where k.IdVest == id
+                                             select k).ToList();
+            }
+            else
+            {
+                int idMax = (from v in _context.Vestis
+                             select v.Id).Max();
+                komentari = (from k in _context.Komentaris
+                                             where k.IdVest == idMax
+                                             select k).ToList();
+            }
+            return komentari;
+        }
     }
 }
