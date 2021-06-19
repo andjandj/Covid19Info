@@ -4,12 +4,12 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 style="margin-top:8%; margin-left:5%; margin-right:5%;">Detalji</h1>
 
 <div>
-    <h4>Slajder</h4>
+    <h4 style="margin-left:5%; margin-right:5%;">Slajder</h4>
     <hr />
-    <dl class="row">
+    <dl class="row" style="margin-top:2%; margin-left:5%; margin-right:5%;margin-top:2%">
       
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Podnaslov)
@@ -55,7 +55,7 @@
         </dd>
     </dl>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+<div style="margin-top:2%; margin-left:5%; margin-right:5%;margin-top:2%">
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.Id  }) |
     <a asp-action="Index">Back to List</a>
 </div>

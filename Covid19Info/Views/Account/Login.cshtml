@@ -16,7 +16,7 @@
             </h2>
         </header>
 
-        <form method="post" class="login__form">
+        <form method="post" class="login__form" asp-action="Login" asp-controller="Account">
             <div>
                 <label asp-for="Email">E-mail </label>
                 <input asp-for="Email" id="email" name="Email" placeholder="mail@address.com">

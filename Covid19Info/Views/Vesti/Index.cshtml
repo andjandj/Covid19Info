@@ -4,17 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 style="margin-left: 1%; margin-right: 5%; margin-top: 10%">Lista svih zapisa</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-info" style="margin-left:1%; margin-right:5%;margin-top:2%">Kreiraj novi zapis</a>
 </p>
-<table class="table">
+<table class="table" style="        border: 2px solid dashed;
+        margin-left: 2%;
+        margin-right: 5%;
+        margin-top: 2%
+">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.Naslov)
             </th>
@@ -48,9 +50,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
+         
             <td>
                 @Html.DisplayFor(modelItem => item.Naslov)
             </td>

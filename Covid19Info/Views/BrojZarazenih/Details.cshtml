@@ -4,52 +4,52 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 style="margin-top:10%; margin-left:5%">Detalji</h1>
 
-<div>
-    <h4>BrojZarazenihOsoba</h4>
+<div style="margin-left:5%; margin-right:5%;margin-top:2%">
+    <h4>Broj zarazenih osoba</h4>
     <hr />
     <dl class="row">
       
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrojTestiranihOsobaDnevno)
+            @Html.DisplayName("Broj testiranih osoba")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.BrojTestiranihOsobaDnevno)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrojPotvrdjenihSlucajeva)
+            @Html.DisplayName("Broj potvrdjenih slucajeva")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.BrojPotvrdjenihSlucajeva)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrojSmrtnihSlucajeva)
+            @Html.DisplayName("Broj smrtnih slucajeva")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.BrojSmrtnihSlucajeva)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UkupanBrojTestiranihSlucajeva)
+            @Html.DisplayName("Ukupan broj testiranih slucajeva")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.UkupanBrojTestiranihSlucajeva)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DatumTestiranja)
+            @Html.DisplayName("Datum testiranja")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DatumTestiranja)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DeoNaKojiSePodaciOdnose)
+            @Html.DisplayName("Deo na koji se podaci odnose")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DeoNaKojiSePodaciOdnose)
         </dd>
     </dl>
 </div>
-<div>
+<div style="margin-left:5%; margin-right:5%;margin-top:2%">
     @Html.ActionLink("Izmeni", "Edit", new {  id = Model.Id }) |
-    <a asp-action="Index">nazad na listu</a>
+    <a asp-action="Index">Nazad na listu</a>
 </div>

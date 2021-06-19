@@ -4,12 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 style="margin-left: 1%; margin-right: 5%; margin-top: 10%">Lista svih zapisa</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-info" style="margin-left:1%; margin-right:5%;margin-top:2%">Kreiraj novi zapis</a>
 </p>
-<table class="table">
+<table class="table"  style="border: 2px solid dashed;
+        margin-left: 2%;
+        margin-right: 5%;
+        margin-top: 2%>
     <thead>
         <tr>
 
@@ -65,7 +68,6 @@
             <td>
                 @Html.ActionLink("Izmeni", "Edit", new {  id=item.Id  }) |
                 @Html.ActionLink("Detalji", "Details", new {  id=item.Id  }) |
-             @*   @Html.ActionLink("Brisi", "Delete", new {  id=item.Id  })*@
                 <a href="~/Slajder/Delete/@item.Id" onclick="return confirm('Jeste li sigurni da zelite da izbrisete ovu vest?')">Brisi</a>
             </td>
         </tr>
